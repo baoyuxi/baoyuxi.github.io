@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hello World | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="ES6操作数组的高级函数map()、filter()、reduce()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/06/17/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2022/06/17/ES6%E6%93%8D%E4%BD%9C%E6%95%B0%E7%BB%84%E7%9A%84%E9%AB%98%E7%BA%A7%E5%87%BD%E6%95%B0map()%E3%80%81filter()%E3%80%81reduce()/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="ES6操作数组的高级函数map()、filter()、reduce()">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-17T00:56:43.035Z">
-<meta property="article:modified_time" content="2022-06-17T00:56:43.036Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:published_time" content="2022-06-17T01:55:33.251Z">
+<meta property="article:modified_time" content="2022-06-14T09:22:32.789Z">
+<meta property="article:author" content="后海">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -154,40 +154,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ES6操作数组的高级函数map()、filter()、reduce()" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello World
-    </h1>
-  
-
-        
-        <a href="/2022/06/17/hello-world/" class="archive-article-date">
-  	<time datetime="2022-06-17T00:56:43.035Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="ES6操作数组的高级函数map-、filter-、reduce"><a href="#ES6操作数组的高级函数map-、filter-、reduce" class="headerlink" title="ES6操作数组的高级函数map()、filter()、reduce()"></a>ES6操作数组的高级函数map()、filter()、reduce()</h2><span id="more"></span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="arr-map-–-更新数组"><a href="#arr-map-–-更新数组" class="headerlink" title="arr.map() – 更新数组"></a>arr.map() – 更新数组</h3><ol>
+<li>原数组不变</li>
+<li>回调函数参数：item(数组元素)、index(序列)、arr(原数组)</li>
+<li>循环原数组，使用return操作输出项，返回新数组，新数组长度和原数组一样</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const originalArr = [1, 2, 3, 4, 5]</span><br><span class="line"></span><br><span class="line">const newArr = originalArr.map((item, index, arr) =&gt; &#123;</span><br><span class="line">  return item * 2 // 将原数组的每一项都乘以2，输出新数组，原数组不变</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.info(newArr) // [2, 4, 6, 8, 10]</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="arr-filter-–-筛选数组"><a href="#arr-filter-–-筛选数组" class="headerlink" title="arr.filter() – 筛选数组"></a>arr.filter() – 筛选数组</h3><ol>
+<li>原数组不变</li>
+<li>回调函数参数：item(数组元素)、index(序列)、arr(原数组)</li>
+<li>循环原数组，使用return判断是否输出元素，返回新数组，新数组长度小于或等于原数组</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const originalArr = [1, 2, 3, 4, 5]</span><br><span class="line"></span><br><span class="line">const newArr = originalArr.filter((item, index, arr) =&gt; &#123;</span><br><span class="line">  return item % 2 == 0 // 将原数组的偶数项输出为新数组，原数组不变</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.info(newArr) // [2, 4]</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+<h3 id="arr-reduce-–-叠加数组"><a href="#arr-reduce-–-叠加数组" class="headerlink" title="arr.reduce() – 叠加数组"></a>arr.reduce() – 叠加数组</h3><ol>
+<li>原数组不变</li>
+<li>回调函数参数：pre(初始值为数组第一项，此后是上一次操作的返回值)、item(数组元素)、index(序列，下标从1开始)、arr(原数组)</li>
+<li>循环原数组，使用return操作输出，直到循环结束，返回一个输出值</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const originalArr = [1, 2, 3, 4, 5]</span><br><span class="line"></span><br><span class="line">const newArr = originalArr.reduce((pre, item, index, arr) =&gt; &#123;</span><br><span class="line">  // 第一次循环：pre:1, item:2, index:1, pre+item:3</span><br><span class="line">  // 第二次循环：pre:3, item:3, index:2, pre+item:6</span><br><span class="line">  // 第三次循环：pre:6, item:4, index:3, pre+item:10</span><br><span class="line">  // 第四次循环：pre:10, item:5, index:4, pre+item:15</span><br><span class="line">  return pre + item</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.info(newArr) // 15</span><br></pre></td></tr></table></figure>
       
 
       
@@ -266,7 +259,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/17/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/17/ES6%E6%93%8D%E4%BD%9C%E6%95%B0%E7%BB%84%E7%9A%84%E9%AB%98%E7%BA%A7%E5%87%BD%E6%95%B0map()%E3%80%81filter()%E3%80%81reduce()/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,20 +271,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2022/06/17/%E6%88%91%E7%9A%84/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          我的
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -329,7 +308,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 John Doe
+    		&copy; 2022 后海
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
