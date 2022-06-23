@@ -22,12 +22,12 @@ function loadWidget(config) {
 			<div id="waifu-tips"></div>
 			<canvas id="live2d" width="800" height="800"></canvas>
 			<div id="waifu-tool">
-				<span class="fa fa-lg fa-comment"></span>
-				<span class="fa fa-lg fa-paper-plane"></span>
+				<span class="fa fa-lg fa-comment" style="display:none"></span>
+				<span class="fa fa-lg fa-paper-plane" style="display:none"></span>
 				<span class="fa fa-lg fa-user-circle"></span>
 				<span class="fa fa-lg fa-street-view"></span>
 				<span class="fa fa-lg fa-camera-retro"></span>
-				<span class="fa fa-lg fa-info-circle"></span>
+				<span class="fa fa-lg fa-info-circle" style="display:none"></span>
 				<span class="fa fa-lg fa-times"></span>
 			</div>
 		</div>`);

@@ -24,7 +24,7 @@
 
 #waifu {
     bottom: -1000px;
-    right: 0;
+    right: 30px;
     line-height: 0;
     margin-bottom: -10px;
     position: fixed;
@@ -79,7 +79,7 @@
 
 #waifu-tool {
     color: #aaa;
-    opacity: 0;
+    opacity: 0.5;
     position: absolute;
     right: -10px;
     top: 70px;
