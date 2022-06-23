@@ -2,7 +2,7 @@
     background-color: #fa0;
     border-radius: 5px;
     bottom: 66px;
-    color: rgb(241, 13, 13);
+    color: #fff;
     cursor: pointer;
     font-size: 12px;
     left: 0;
@@ -24,7 +24,7 @@
 
 #waifu {
     bottom: -1000px;
-    right: 30px;
+    right: 0;
     line-height: 0;
     margin-bottom: -10px;
     position: fixed;
@@ -36,9 +36,6 @@
 #waifu:hover {
     transform: translateY(0);
 }
-
-
-/* 对话框 */
 
 #waifu-tips {
     animation: shake 50s ease-in-out 5s infinite;
@@ -94,8 +91,7 @@
 }
 
 #waifu-tool .fa-lg {
-    color: #c7c7c7;
-    opacity: 0.3;
+    color: #7b8c9d;
     cursor: pointer;
     display: block;
     height: 30px;
