@@ -6,31 +6,31 @@
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 7.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="事件循环：深入理解 JavaScript 的异步机制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事件循环">
 <meta property="og:url" content="http://example.com/2025/02/28/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
-<meta property="og:site_name" content="后海">
+<meta property="og:site_name" content="Brain&#39;s Blog">
 <meta property="og:description" content="事件循环：深入理解 JavaScript 的异步机制">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-28T00:25:41.000Z">
-<meta property="article:modified_time" content="2025-02-28T02:53:33.316Z">
+<meta property="article:modified_time" content="2025-02-28T03:23:14.817Z">
 <meta property="article:author" content="Brain">
 <meta property="article:tag" content="浏览器">
 <meta name="twitter:card" content="summary">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>事件循环 | 后海</title>
+  <title>事件循环 | Brain's Blog</title>
   
 
 
@@ -99,9 +99,10 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">后海</h1>
+      <h1 class="site-title">Brain's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
+      <p class="site-subtitle" itemprop="description">Code builds world !</p>
   </div>
 
   <div class="site-nav-right">
@@ -118,22 +119,27 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -201,7 +207,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="后海">
+      <meta itemprop="name" content="Brain's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -216,7 +222,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-02-28 08:25:41 / 修改时间：10:53:33" itemprop="dateCreated datePublished" datetime="2025-02-28T08:25:41+08:00">2025-02-28</time>
+              <time title="创建时间：2025-02-28 08:25:41 / 修改时间：11:23:14" itemprop="dateCreated datePublished" datetime="2025-02-28T08:25:41+08:00">2025-02-28</time>
             </span>
 
           
@@ -234,10 +240,12 @@
 
 <h2 id="什么是事件循环？"><a href="#什么是事件循环？" class="headerlink" title="什么是事件循环？"></a>什么是事件循环？</h2><p>事件循环（Event Loop）是 JavaScript 运行时环境（如浏览器或 Node.js）中处理异步任务的核心机制。它负责管理调用栈（Call Stack）、任务队列（Task Queue）和微任务队列（Microtask Queue）的执行顺序，确保异步代码能够正确执行。</p>
 <hr>
-<h2 id="事件循环的核心概念"><a href="#事件循环的核心概念" class="headerlink" title="事件循环的核心概念"></a>事件循环的核心概念</h2><h3 id="1-调用栈（Call-Stack）"><a href="#1-调用栈（Call-Stack）" class="headerlink" title="1. 调用栈（Call Stack）"></a>1. <strong>调用栈（Call Stack）</strong></h3><p>调用栈是一个后进先出（LIFO）的数据结构，用于存储函数的执行上下文。当一个函数被调用时，它会被推入调用栈；当函数执行完毕后，它会从调用栈中弹出。</p>
+<h2 id="1-JS代码在哪里运行"><a href="#1-JS代码在哪里运行" class="headerlink" title="1.JS代码在哪里运行"></a>1.JS代码在哪里运行</h2><p>1.1线程和进程</p>
+<p>电脑在运行程序的时候会给每个应用程序开辟一个内存空间，即为进程，可以保证每个程序单独运行互不干扰，如一个办公室中，为每个人都安排单独的工作位置。一个进程中会有一个或者多个</p>
+<h3 id="1-调用栈（Call-Stack）"><a href="#1-调用栈（Call-Stack）" class="headerlink" title="1. 调用栈（Call Stack）"></a>1. <strong>调用栈（Call Stack）</strong></h3><p>调用栈是一个后进先出（LIFO）的数据结构，用于存储函数的执行上下文。当一个函数被调用时，它会被推入调用栈；当函数执行完毕后，它会从调用栈中弹出。</p>
 <p>javascript</p>
 <p>复制</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    console.log(&quot;foo&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function bar() &#123;</span><br><span class="line">    foo();</span><br><span class="line">    console.log(&quot;bar&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    foo();</span><br><span class="line">    <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
 
 <p><strong>执行过程：</strong></p>
 <ol>
@@ -277,11 +285,11 @@
 <h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p>以下是一个示例，展示了事件循环的执行顺序：</p>
 <p>javascript</p>
 <p>复制</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;Start&quot;);</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(&quot;Timeout&quot;);</span><br><span class="line">&#125;, 0);</span><br><span class="line"></span><br><span class="line">Promise.resolve().then(() =&gt; &#123;</span><br><span class="line">    console.log(&quot;Promise&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(&quot;End&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;Start&quot;</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;Timeout&quot;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">Promise.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;Promise&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;End&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p><strong>输出结果：</strong></p>
 <p>复制</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Start</span><br><span class="line">End</span><br><span class="line">Promise</span><br><span class="line">Timeout</span><br></pre></td></tr></table></figure>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Start</span><br><span class="line"><span class="keyword">End</span></span><br><span class="line">Promise</span><br><span class="line"><span class="keyword">Timeout</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>解释：</strong></p>
 <ol>
@@ -377,7 +385,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-JavaScript-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">事件循环：深入理解 JavaScript 的异步机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什么是事件循环？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">事件循环的核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B0%83%E7%94%A8%E6%A0%88%EF%BC%88Call-Stack%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 调用栈（Call Stack）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%EF%BC%88Task-Queue%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 任务队列（Task Queue）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%BE%AE%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%EF%BC%88Microtask-Queue%EF%BC%89"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 微任务队列（Microtask Queue）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text">事件循环的执行顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">代码示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.5.</span> <span class="nav-text">事件循环的常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88-Promise-%E6%AF%94-setTimeout-%E5%85%88%E6%89%A7%E8%A1%8C%EF%BC%9F"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 为什么 Promise 比 setTimeout 先执行？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E9%98%BB%E5%A1%9E%EF%BC%9F"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 如何避免事件循环阻塞？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-requestAnimationFrame-%E5%B1%9E%E4%BA%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1%E8%BF%98%E6%98%AF%E5%BE%AE%E4%BB%BB%E5%8A%A1%EF%BC%9F"><span class="nav-number">1.5.3.</span> <span class="nav-text">3. requestAnimationFrame 属于宏任务还是微任务？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%EF%BC%9A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-JavaScript-%E7%9A%84%E5%BC%82%E6%AD%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">事件循环：深入理解 JavaScript 的异步机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什么是事件循环？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-JS%E4%BB%A3%E7%A0%81%E5%9C%A8%E5%93%AA%E9%87%8C%E8%BF%90%E8%A1%8C"><span class="nav-number">1.2.</span> <span class="nav-text">1.JS代码在哪里运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B0%83%E7%94%A8%E6%A0%88%EF%BC%88Call-Stack%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 调用栈（Call Stack）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%EF%BC%88Task-Queue%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 任务队列（Task Queue）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%BE%AE%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%EF%BC%88Microtask-Queue%EF%BC%89"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 微任务队列（Microtask Queue）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text">事件循环的执行顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">代码示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.5.</span> <span class="nav-text">事件循环的常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88-Promise-%E6%AF%94-setTimeout-%E5%85%88%E6%89%A7%E8%A1%8C%EF%BC%9F"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 为什么 Promise 比 setTimeout 先执行？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E9%98%BB%E5%A1%9E%EF%BC%9F"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 如何避免事件循环阻塞？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-requestAnimationFrame-%E5%B1%9E%E4%BA%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1%E8%BF%98%E6%98%AF%E5%BE%AE%E4%BB%BB%E5%8A%A1%EF%BC%9F"><span class="nav-number">1.5.3.</span> <span class="nav-text">3. requestAnimationFrame 属于宏任务还是微任务？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -405,6 +413,20 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/yourname" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/yourname" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
+      </span>
+  </div>
 
 
 
@@ -422,18 +444,16 @@
       <div class="footer-inner">
         
 
-        
-
-<div class="copyright">
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class=""></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Brain</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
         
@@ -577,5 +597,5 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
 </script>
 
     </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

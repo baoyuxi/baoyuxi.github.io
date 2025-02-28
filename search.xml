@@ -7,10 +7,12 @@
 
 <h2 id="什么是事件循环？"><a href="#什么是事件循环？" class="headerlink" title="什么是事件循环？"></a>什么是事件循环？</h2><p>事件循环（Event Loop）是 JavaScript 运行时环境（如浏览器或 Node.js）中处理异步任务的核心机制。它负责管理调用栈（Call Stack）、任务队列（Task Queue）和微任务队列（Microtask Queue）的执行顺序，确保异步代码能够正确执行。</p>
 <hr>
-<h2 id="事件循环的核心概念"><a href="#事件循环的核心概念" class="headerlink" title="事件循环的核心概念"></a>事件循环的核心概念</h2><h3 id="1-调用栈（Call-Stack）"><a href="#1-调用栈（Call-Stack）" class="headerlink" title="1. 调用栈（Call Stack）"></a>1. <strong>调用栈（Call Stack）</strong></h3><p>调用栈是一个后进先出（LIFO）的数据结构，用于存储函数的执行上下文。当一个函数被调用时，它会被推入调用栈；当函数执行完毕后，它会从调用栈中弹出。</p>
+<h2 id="1-JS代码在哪里运行"><a href="#1-JS代码在哪里运行" class="headerlink" title="1.JS代码在哪里运行"></a>1.JS代码在哪里运行</h2><p>1.1线程和进程</p>
+<p>电脑在运行程序的时候会给每个应用程序开辟一个内存空间，即为进程，可以保证每个程序单独运行互不干扰，如一个办公室中，为每个人都安排单独的工作位置。一个进程中会有一个或者多个</p>
+<h3 id="1-调用栈（Call-Stack）"><a href="#1-调用栈（Call-Stack）" class="headerlink" title="1. 调用栈（Call Stack）"></a>1. <strong>调用栈（Call Stack）</strong></h3><p>调用栈是一个后进先出（LIFO）的数据结构，用于存储函数的执行上下文。当一个函数被调用时，它会被推入调用栈；当函数执行完毕后，它会从调用栈中弹出。</p>
 <p>javascript</p>
 <p>复制</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    console.log(&quot;foo&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function bar() &#123;</span><br><span class="line">    foo();</span><br><span class="line">    console.log(&quot;bar&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">    foo();</span><br><span class="line">    <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
 
 <p><strong>执行过程：</strong></p>
 <ol>
@@ -50,11 +52,11 @@
 <h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p>以下是一个示例，展示了事件循环的执行顺序：</p>
 <p>javascript</p>
 <p>复制</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">console.log(&quot;Start&quot;);</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(&quot;Timeout&quot;);</span><br><span class="line">&#125;, 0);</span><br><span class="line"></span><br><span class="line">Promise.resolve().then(() =&gt; &#123;</span><br><span class="line">    console.log(&quot;Promise&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(&quot;End&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;Start&quot;</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;Timeout&quot;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">Promise.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;Promise&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.<span class="built_in">log</span>(<span class="string">&quot;End&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p><strong>输出结果：</strong></p>
 <p>复制</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Start</span><br><span class="line">End</span><br><span class="line">Promise</span><br><span class="line">Timeout</span><br></pre></td></tr></table></figure>
+<figure class="highlight coq"><table><tr><td class="code"><pre><span class="line">Start</span><br><span class="line"><span class="keyword">End</span></span><br><span class="line">Promise</span><br><span class="line"><span class="keyword">Timeout</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>解释：</strong></p>
 <ol>
