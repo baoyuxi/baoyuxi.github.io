@@ -1,0 +1,33 @@
+// 设置全局背景图
+//背景图片设置
+body {
+    background-image: url(/images/8.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    opacity: 0.8;
+    //可选
+    +mobile(){
+      background-image: url(https://ziyuan.lruihao.cn/images/bg_cell.png);
+      background-size: cover;
+    }
+}
+
+//文章背板的颜色rgb
+.main-inner > .sub-menu, .main-inner > .post-block, .main-inner > .tabs-comment, .main-inner > .comments, .main-inner > .pagination{
+    background: #f5f5f56b;      //此处使用十六进制颜色代码，         也可以使用rgba进行调色，
+                                //实际效果为白色透明色底板              rgba的第四参数即为透明度
+}
+body{               //修改主体字体颜色
+  color: #000;      //纯黑
+}
+.posts-expand .post-title-link {    //标题颜色
+    color: #000;                //首页文章标题颜色， （默认为灰辨识度不高）
+}
+.posts-expand .post-meta-container {    //标题下的日期颜色
+    color: #880000;             //此处修改为红色，可自行调用rgb调色
+}
+
+
+
+

@@ -3,14 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-# Site
-title: 后海 	#标题
-subtitle: ''	#副标题
-description: 归途也还可爱		#个性签名
+title: Brain's Blog
+subtitle: "Code builds world !"
+description: "归途也还可爱"
 keywords:
-author: Brain	#作者
-language: zh-CN	#语言
-timezone: Asia/Shanghai    #中国的时区
+author: Brain
+language: zh-CN
+timezone: "Asia/Shanghai"
 
 
 # URL
@@ -47,15 +46,18 @@ relative_link: false
 future: true
 syntax_highlighter: highlight.js
 highlight:
-  line_number: true
-  auto_detect: false
-  tab_replace: ''
+  enable: true #是否开启代码高亮
+  line_number: true #是否增加代码行号
+  auto_detect: true #自动判断代码语言
+  tab_replace: ""
   wrap: true
   hljs: false
 prismjs:
+  enable: false
   preprocess: true
   line_number: true
-  tab_replace: ''
+  tab_replace: ""
+
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
