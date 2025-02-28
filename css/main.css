@@ -1240,7 +1240,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ee1852;
+  background: #ff833e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2421,10 +2421,11 @@ mjx-container + br {
   }
 }
 .site-brand-container {
-  background: #222;
+  background: url("https://images.unsplash.com/photo-1668871333606-ef8461d43922?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60");
+  background-size: cover;
 }
 @media (max-width: 991px) {
-  .site-brand-container {
+  .site-nav-on .site-brand-container {
     box-shadow: 0 0 16px rgba(0,0,0,0.5);
   }
 }
@@ -2783,4 +2784,13 @@ body {
 }
 .posts-expand .post-meta-container {
   color: #800;
+}
+.social-icons a {
+  color: #f00 !important; /* 图标颜色 */
+  opacity: 0.9; /* 透明度 */
+  transition: 0.3s; /* 悬停动画 */
+}
+.social-icons a:hover {
+  opacity: 1;
+  transform: scale(1.2);
 }
